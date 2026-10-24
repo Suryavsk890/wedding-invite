@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Wedding · Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Great+Vibes&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <canvas id="scene"></canvas>
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="loader-ring"></div>
+    <p>Preparing something beautiful…</p>
+  </div>
+
+  <!-- Grain overlay for film feel -->
+  <div class="grain"></div>
+
+  <!-- Floating names (ambient) -->
+  <div class="floating-names" aria-hidden="true">
+    <span>A</span><span>&</span><span>J</span>
+  </div>
+
+  <div class="scroll-container">
+
+    <!-- HERO -->
+    <section class="section hero">
+      <div class="content">
+        <p class="eyebrow">Together with our families</p>
+        <h1 class="names">
+          <span class="name">Ayesha</span>
+          <span class="amp">&</span>
+          <span class="name">Junaid</span>
+        </h1>
+        <p class="tagline">request the honour of your presence</p>
+        <div class="scroll-cue">
+          <span>Scroll</span>
+          <div class="line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATE -->
+    <section class="section">
+      <div class="content card">
+        <p class="eyebrow">Save the date</p>
+        <h2 class="big-date">12 · 06 · 2026</h2>
+        <div class="divider"><span>✦</span></div>
+        <p class="tagline">Saturday · 5:00 in the evening</p>
+      </div>
+    </section>
+
+    <!-- VENUE -->
+    <section class="section">
+      <div class="content card">
+        <p class="eyebrow">The celebration</p>
+        <h2>Grand Ballroom</h2>
+        <p class="venue">City Hotel · Your City</p>
+        <div class="divider"><span>✦</span></div>
+        <a class="map-link" href="https://maps.google.com/?q=Grand+Ballroom+City+Hotel" target="_blank" rel="noopener">
+          View on map →
+        </a>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section class="section">
+      <div class="content card">
+        <p class="eyebrow">Counting the moments</p>
+        <div id="countdown" class="countdown">
+          <div class="unit"><span class="num" id="days">00</span><span class="label">Days</span></div>
+          <div class="unit"><span class="num" id="hours">00</span><span class="label">Hours</span></div>
+          <div class="unit"><span class="num" id="minutes">00</span><span class="label">Minutes</span></div>
+          <div class="unit"><span class="num" id="seconds">00</span><span class="label">Seconds</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="section rsvp">
+      <div class="content card">
+        <p class="eyebrow">Kindly reply</p>
+        <h2>Will you join us?</h2>
+        <form id="rsvp-form">
+          <div class="field">
+            <input type="text" id="rsvp-name" placeholder=" " required />
+            <label for="rsvp-name">Your name</label>
+          </div>
+          <div class="field">
+            <select id="rsvp-attend" required>
+              <option value="" disabled selected hidden></option>
+              <option value="yes">Yes, with joy</option>
+              <option value="no">Sadly, cannot attend</option>
+            </select>
+            <label for="rsvp-attend" class="always-up">Will you attend?</label>
+          </div>
+          <button type="submit">
+            <span>Send RSVP</span>
+          </button>
+        </form>
+        <p id="rsvp-msg" class="rsvp-msg"></p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="section footer">
+      <div class="content">
+        <p class="script">A & J</p>
+        <p class="eyebrow">With love · 2026</p>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
