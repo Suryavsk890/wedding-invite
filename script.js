@@ -377,4 +377,43 @@ addEventListener('load', () => {
    ========================================================= */
 const weddingDate = new Date('2026-06-12T17:00:00');
 
-function pad
+function pad(n) { return String(n).padStart(2, '0'); }
+
+function tick() {
+  const diff = weddingDate - new Date();
+  if (diff <= 0) {
+    ['days', 'hours', 'minutes', 'seconds'].forEach(id => {
+      document.getElementById(id).textContent = '00';
+    });
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor(diff / 3600000) % 24;
+  const m = Math.floor(diff / 60000) % 60;
+  const s = Math.floor(diff / 1000) % 60;
+  document.getElementById('days').textContent = pad(d);
+  document.getElementById('hours').textContent = pad(h);
+  document.getElementById('minutes').textContent = pad(m);
+  document.getElementById('seconds').textContent = pad(s);
+}
+tick();
+setInterval(tick, 1000);
+
+/* =========================================================
+   6. RSVP (client-side)
+   ========================================================= */
+document.getElementById('rsvp-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('rsvp-name').value.trim();
+  const attend = document.getElementById('rsvp-attend').value;
+  const msg = document.getElementById('rsvp-msg');
+
+  if (!name || !attend) return;
+
+  msg.textContent = attend === 'yes'
+    ? `Thank you, ${name}. We can't wait to celebrate with you. ✦`
+    : `Thank you for letting us know, ${name}. You'll be missed. ✦`;
+
+  gsap.fromTo(msg, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.6 });
+  e.target.reset();
+});
